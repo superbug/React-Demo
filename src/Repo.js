@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Repo extends React.Component {
+export default React.createClass({
   render() {
     return (
       <div>
@@ -13,6 +13,4 @@ class Repo extends React.Component {
       </div>
     );
   }
-}
-
-export default Repo;
+});
