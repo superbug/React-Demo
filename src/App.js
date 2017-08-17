@@ -16,7 +16,9 @@ class App extends Component {
           <Menu
             theme="dark"
             mode="horizontal"
-            defaultSelectedKeys={[this.props.location.pathname]}
+            defaultSelectedKeys={[
+              `/${this.props.location.pathname.split('/')[1]}`
+            ]}
             style={{ lineHeight: '64px' }}
           >
             <Menu.Item key="/repos">
