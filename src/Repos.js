@@ -1,5 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Switch, Route } from 'react-router';
+import Repos from './Repos';
+import Repo from './Repo';
 
 export default React.createClass({
   render() {
@@ -14,6 +17,9 @@ export default React.createClass({
             <NavLink to="/repos/facebook/react">React</NavLink>
           </li>
         </ul>
+        <Switch>
+          <Route path="/repos/:userName/:repoName" component={Repo} />
+        </Switch>
       </div>
     );
   }
