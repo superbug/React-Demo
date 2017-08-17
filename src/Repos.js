@@ -7,14 +7,14 @@ const { Header, Content, Sider } = Layout;
 
 class Repos extends Component {
   state = {
-    repos: null
+    repos: []
   };
 
   componentDidMount() {
-    fetch('https://api.github.com/orgs/ant-design/repos?page=1&per_page=100')
+    fetch('https://api.github.com/orgs/ant-design/repos?page=1&per_page=1000')
       .then(res => res.json())
       .then(repos => {
-        this.setState({ repos });
+        this.setState({ repos: repos || [] });
       });
   }
 
@@ -27,12 +27,12 @@ class Repos extends Component {
           <Menu
             mode="inline"
             defaultSelectedKeys={['0']}
-            style={{ height: '100%' }}
+            style={{ height: 'auto' }}
           >
-            {repos
+            {repos.map
               ? repos.map((repo, index) =>
                   <Menu.Item key={index}>
-                    <NavLink to={`/repos/${repo.name}`}>
+                    <NavLink to={`/repos/${repo.owner.login}/${repo.name}`}>
                       {repo.name}
                     </NavLink>
                   </Menu.Item>
@@ -42,7 +42,7 @@ class Repos extends Component {
         </Sider>
         <Content style={{ padding: '0 24px', minHeight: 280 }}>
           <Switch>
-            <Route path="/repos/:repoName" component={Repo} />
+            <Route path="/repos/:userName/:repoName" component={Repo} />
           </Switch>
         </Content>
       </Layout>

@@ -30,7 +30,7 @@ class App extends Component {
             </Menu.Item>
           </Menu>
         </Header>
-        <Content style={{ padding: '0 50px' }}>
+        <Content>
           <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
             <Switch>
               <Route path="/repos" component={Repos} />
