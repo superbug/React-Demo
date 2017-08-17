@@ -7,11 +7,8 @@ class Repo extends Component {
     repo: null
   };
 
-  fetchData() {
-    fetch(
-      `https://api.github.com/repos/${this.props.match.params.userName}/${this
-        .props.match.params.repoName}/readme`
-    )
+  fetchData(userName, repoName) {
+    fetch(`https://api.github.com/repos/${userName}/${repoName}/readme`)
       .then(res => res.json())
       .then(repo => {
         this.setState({ repo: new Buffer(repo.content, 'base64').toString() });
@@ -22,7 +19,10 @@ class Repo extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.fetchData();
+    this.fetchData(
+      newProps.match.params.userName,
+      newProps.match.params.repoName
+    );
   }
 
   render() {
