@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Switch, Route } from 'react-router';
 import { Layout, Menu, Spin } from 'antd';
 import Repo from './Repo';
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 class Repos extends Component {
   state = {
