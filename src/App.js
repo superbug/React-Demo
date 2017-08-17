@@ -16,16 +16,16 @@ class App extends Component {
           <Menu
             theme="dark"
             mode="horizontal"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={[this.props.location.pathname]}
             style={{ lineHeight: '64px' }}
           >
-            <Menu.Item key="1">
+            <Menu.Item key="/repos">
               <Link to="/repos">repos</Link>
             </Menu.Item>
-            <Menu.Item key="2">
+            <Menu.Item key="/todos">
               <Link to="/todos">todos</Link>
             </Menu.Item>
-            <Menu.Item key="3">
+            <Menu.Item key="/about">
               <Link to="/about">about</Link>
             </Menu.Item>
           </Menu>

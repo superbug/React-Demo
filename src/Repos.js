@@ -26,12 +26,12 @@ class Repos extends Component {
           {repos ? null : <Spin />}
           <Menu
             mode="inline"
-            defaultSelectedKeys={['0']}
+            defaultSelectedKeys={[this.props.location.pathname]}
             style={{ height: 'auto' }}
           >
             {repos.map
               ? repos.map((repo, index) =>
-                  <Menu.Item key={index}>
+                  <Menu.Item key={`/repos/${repo.owner.login}/${repo.name}`}>
                     <NavLink to={`/repos/${repo.owner.login}/${repo.name}`}>
                       {repo.name}
                     </NavLink>
