@@ -38,6 +38,7 @@ class App extends Component {
               <Route path="/repos" component={Repos} />
               <Route path="/todos" component={Todos} />
               <Route path="/about" component={About} />
+              <Route component={About} />
             </Switch>
           </div>
         </Content>
